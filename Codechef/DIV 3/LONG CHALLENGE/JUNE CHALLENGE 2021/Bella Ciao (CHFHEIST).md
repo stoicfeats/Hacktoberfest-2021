@@ -4,7 +4,7 @@
 
 
 Solution : (Accepted)
-
+**In C++:
 ```
 #include <bits/stdc++.h>
 using namespace std;
@@ -21,5 +21,37 @@ result = (rounds * p * d) + d * q * (rounds * (rounds - 1) / 2) + (p * left + (l
 cout << result << endl;
 }
 return 0;
+}
+```
+
+**In Java:
+```
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef {
+	public static void main (String[] args) throws IOException {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        try{
+            long testcase = Integer.parseInt(reader.readLine());
+            for(int i=0;i<testcase;i++){
+
+                String[] arr = reader.readLine().split(" ");
+                long D = Integer.parseInt(arr[0]);
+                long d = Integer.parseInt(arr[1]);
+                long p = Integer.parseInt(arr[2]);
+                long q = Integer.parseInt(arr[3]);
+                long sum =0;
+                long n = D/d;
+                sum= (p*n + ((q*((n-1)*n))/2))*d;
+                
+                if(D%d!=0){
+                    sum = sum + (D%d)*(p+n*q);
+                }
+                System.out.println(sum);
+            }
+        } catch (Exception e){}
+	  }
 }
 ```
