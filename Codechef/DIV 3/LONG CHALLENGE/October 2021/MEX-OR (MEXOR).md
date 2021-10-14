@@ -11,21 +11,20 @@ using namespace std;
 int main() 
 { 
     int t ; cin>>t ;
-	
-	  while(t--)
-	  {
-	      int m=0,n; cin>>n ;
-	      if(n==0) cout<<"1\n";
-	      else if(n>0)
-	      {
-	          while(n>=2*m+1)
+    while(t--)
+    {
+        int m=0,n; cin>>n ;
+        if(n==0) cout<<"1\n";
+        else if(n>0)
+	{
+	    while(n>=2*m+1)
             {
-	              m=2*m+1;
-	          }
-	          cout<<m+1<<endl;  
-	      }
-    }
-	  return 0;
+       	        m=2*m+1;
+	    }
+	    cout<<m+1<<endl;
+	}   
+    }    
+    return 0;
 }
 
 ```
