@@ -2,12 +2,11 @@ Contest Code : OCT21C
 Problem Code : MIXTURE
 
 QUESTION LINK : https://www.codechef.com/OCT21C/problems/MIXTURE/
-
 Solution : (Accepted)
-
 
 #include <iostream>
 using namespace std;
+
 int main() 
 {
 	int t; cin>>t ;
@@ -22,5 +21,5 @@ int main()
 	}
 	return 0;
 }
-  
+
   
