@@ -11,7 +11,6 @@ using namespace std;
 int main() 
 {   
     int t; cin>>t;
-    
     while(t--)
     {
         int n; cin>>n;
@@ -22,7 +21,6 @@ int main()
             continue;
         }
         int i=1;
-        
         while(2*i<=n)
         {
             i=i*2;    
