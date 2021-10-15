@@ -15,7 +15,7 @@ Constraints :
 ```
 ### SOLUTION
 >**Time Complexity : O(N)** <br>
->**Space Complexity : O(1)**
+>**Space Complexity : O(N)**
 
 ```
 #include <bits/stdc++.h>
