@@ -1,7 +1,7 @@
 # You may need to run following commands in terminal to get required libraries
 # pip install tkinter
 # Pip install pytube
-
+# downloading a youtube video needs its link, just paste link in the dialogue box and hit download 
 from tkinter import *
 from pytube import YouTube
 
