@@ -1,0 +1,48 @@
+
+Question Link:
+ https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1
+ 
+ Solution(C++):
+ 
+#include<bits/stdc++.h>
+using namespace std;
+
+class Solution 
+{
+    bool isValid(int arr[],int n,int m,int range){
+        int temp=0,st=1;
+        for(int i=0;i<n;i++){
+            temp+=arr[i];
+            if(temp>range){
+                st++;
+                temp=arr[i];
+            }
+            if(st>m)
+              return false;
+        }
+        return true;
+    }
+    public:
+    //Function to find minimum number of pages.
+    int findPages(int arr[], int n, int m) 
+    {
+        if(n<m)
+          return -1;
+        int maxm=INT_MIN,sum=0;
+        for(int i=0;i<n;i++){
+            maxm=max(maxm,arr[i]);
+            sum+=arr[i];
+        }
+        int res=-1;
+        int l=maxm,h=sum;
+        while(l<=h){
+            int mid=(l+h)/2;
+            if(isValid(arr,n,m,mid)){
+                res=mid;
+                h=mid-1;
+            }else
+             l=mid+1;
+        }
+        return res;
+    }
+};

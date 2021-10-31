@@ -1,0 +1,98 @@
+#include <bits/stdc++.h>
+using namespace std;
+class node {
+public:
+	node* left;
+	node* right;
+};
+class trie {
+	node* root;
+public:
+	trie()
+	{
+		root = new node();
+	}
+	void insert(int val)
+	{
+		node* temp = root;
+		for (int i = 31; i >= 0; i--)
+		{
+			int bit = (val >> i) & 1;
+			if (bit == 0)
+			{
+				if (temp->left == NULL)
+				{
+					temp->left = new node();
+				}
+				temp = temp->left;
+			}
+			else
+			{
+				if (temp->right == NULL)
+				{
+					temp->right = new node();
+				}
+				temp = temp->right;
+			}
+		}
+	}
+	int max_xor(int val)
+	{
+		node* temp = root;
+		int cur = 0;
+		for (int i = 31; i >= 0; i--)
+		{
+			int bit = (val >> i) & 1;
+			if (bit != 0)
+			{
+				if (temp->left != NULL)
+				{
+					cur += (1 << i);
+					temp = temp->left;
+				}
+				else
+				{
+					temp = temp->right;
+				}
+			}
+			else
+			{
+				if (temp->right != NULL)
+				{
+					cur += (1 << i);
+					temp = temp->right;
+				}
+				else
+				{
+					temp = temp->left;
+				}
+			}
+		}
+		return cur;
+	}
+};
+int main(int argc, char const *argv[])
+{
+	int arr[] = {3, 10, 5, 25, 2, 8};
+	int n = sizeof(arr) / sizeof(arr[0]);
+	int ans = 0;
+	trie t;
+	for (int val : arr)
+	{
+		t.insert(val);
+		ans = max(ans, t.max_xor(val));
+	}
+	cout << ans;
+	return 0;
+}
+
+//Input1: [3,10,5,25,2,8]
+//Output1: 28
+
+//Input2:[14,70,53,83,49,91,36,80,92,51,66,70]
+//Output2: 127
+
+//Time Complexity: O(32*N)
+//Auxiliary Space: O(32*N)
+
+
